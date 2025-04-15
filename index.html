@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>魷Y∞uth遊戲 | 21C 開幕典禮 RSVP</title>
+  <title>21C@JCISC 青年空間開幕禮 - 魷 Y∞UTH</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
 
@@ -41,7 +41,7 @@
 
     .shapes {
       position: fixed;
-      top: 200px; /* ✅ 推下來不干擾 sponsors.png */
+      top: 200px;
       left: 0;
       width: 100%;
       height: calc(100% - 200px);
@@ -91,16 +91,16 @@
       z-index: 1;
     }
 
-    .main-title {
-      font-size: 2rem;
+    .subtitle {
+      font-size: 1rem;
       color: #ff0044;
-      line-height: 1.2;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.6rem;
     }
 
-    .subtitle {
-      font-size: 1.1rem;
+    .main-title {
+      font-size: 1.6rem;
       color: #ff0044;
+      line-height: 1.4;
       margin-bottom: 1rem;
     }
 
@@ -110,10 +110,10 @@
       margin: 1rem 0;
     }
 
-    input[type="text"] {
+    input[type="text"], input[type="tel"] {
       width: 100%;
       padding: 0.6rem;
-      margin: 1rem 0;
+      margin: 0.5rem 0;
       border: none;
       border-radius: 5px;
       font-size: 1rem;
@@ -124,6 +124,7 @@
       display: flex;
       gap: 1rem;
       justify-content: center;
+      margin-top: 1rem;
     }
 
     .cta-button {
@@ -163,20 +164,16 @@
 
     @media (max-width: 480px) {
       .invitation-card { padding: 1.5rem; }
-      .main-title { font-size: 1.6rem; }
-      .subtitle { font-size: 1rem; }
-      .shape { font-size: 2.5rem; }
+      .main-title { font-size: 1.4rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Sponsors logo（不被遮住） -->
   <div class="top-logo">
     <img src="sponsors.png" alt="Sponsors" draggable="false" />
   </div>
 
-  <!-- ✅ 全頁背景符號（往下推避開 sponsor） -->
   <div class="shapes">
     <div class="shape">∞</div>
     <div class="shape">▲</div>
@@ -195,22 +192,30 @@
     <div class="shape">▲</div>
   </div>
 
-  <!-- RSVP 卡片 -->
   <div class="invitation-card">
-    <div class="main-title">魷Y∞uth遊戲</div>
-    <div class="subtitle">21C 開幕典禮</div>
+    <div class="subtitle">誠邀您出席活動</div>
+
+    <div class="main-title">
+      21C@JCISC 青年空間開幕禮 -<br>
+      魷 Y∞UTH
+    </div>
+
     <div class="details">
       📅 日期：2025年5月10日（星期六）<br>
-      🕒 時間：下午1:45 至 3:10<br>
-      📍 地點：石排灣邨碧銀樓平台 1 號<br><br>
-      請填寫您的姓名並選擇是否出席活動。
+      🕒 時間：下午1:45 至 3:15<br>
+      📍 地點：石排灣邨碧銀樓平台 1 號
     </div>
 
     <form id="rsvpForm"
       action="https://docs.google.com/forms/d/e/1FAIpQLSfBFUqU4v8nbdymUxysuBFg4gkV41zqHPXUIeKMlWWWNzxAlQ/formResponse"
       method="POST" target="hidden_iframe" onsubmit="handleSubmit(event)">
-      <input type="text" name="entry.530470980" id="name" placeholder="請輸入您的姓名" required />
+      
+      <input type="text" name="entry.530470980" placeholder="姓名" required />
+      <input type="text" name="entry.645586677" placeholder="職銜" />
+      <input type="tel" name="entry.664150346" placeholder="聯絡電話" />
+
       <input type="hidden" id="attendanceInput" name="entry.65923859" value="" />
+
       <div class="button-group">
         <button type="submit" class="cta-button" onclick="setAttendance('確認出席')">確認出席</button>
         <button type="submit" class="cta-button decline-button" onclick="setAttendance('未能出席')">未能出席</button>
