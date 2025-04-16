@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>21C@JCISC 青年空間開幕禮 - 魷 Y∞UTH 遊戲</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0b0b0b;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .top-logo {
+      width: 100%;
+      background: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-bottom: 2rem;
+      z-index: 2;
+      position: relative;
+    }
+
+    .top-logo img {
+      display: block;
+      width: 100%;
+      max-width: 1024px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .shapes {
+      position: fixed;
+      top: 200px;
+      left: 0;
+      width: 100%;
+      height: calc(100% - 200px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      font-size: 3rem;
+      font-weight: bold;
+      color: rgba(255, 0, 100, 0.2);
+      animation: float 6s infinite ease-in-out alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-20px) rotate(10deg); }
+    }
+
+    .invitation-card {
+      position: relative;
+      background: #111;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(255, 0, 70, 0.8);
+      max-width: 480px;
+      width: 90%;
+      text-align: center;
+      margin: 2rem auto;
+      z-index: 1;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #ff0044;
+      margin-bottom: 0.6rem;
+    }
+
+    .main-title {
+      font-size: 1.6rem;
+      color: #ff0044;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .details {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+
+    input[type="text"], input[type="tel"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .cta-button {
+      padding: 0.6rem 1.2rem;
+      background-color: #ff0044;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      font-weight: bold;
+      cursor: pointer;
+      flex: 1 1 45%;
+      transition: background 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #ff3366;
+    }
+
+    .decline-button {
+      background-color: #333;
+    }
+
+    .decline-button:hover {
+      background-color: #555;
+    }
+
+    #thankYouMessage {
+      display: none;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: #00ff88;
+    }
+
+    iframe {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .invitation-card { padding: 1.5rem; }
+      .main-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-logo">
+    <img src="sponsors.png" alt="Sponsors" draggable="false" />
+  </div>
+
+  <div class="shapes">
+    <div class="shape">∞</div>
+    <div class="shape">▲</div>
+    <div class="shape">●</div>
+    <div class="shape">■</div>
+    <div class="shape">∞</div>
+    <div class="shape">▲</div>
+    <div class="shape">●</div>
+    <div class="shape">■</div>
+    <div class="shape">∞</div>
+    <div class="shape">▲</div>
+    <div class="shape">●</div>
+    <div class="shape">■</div>
+    <div class="shape">∞</div>
+    <div class="shape">●</div>
+    <div class="shape">▲</div>
+  </div>
+
+  <div class="invitation-card">
+    <div class="subtitle">誠邀您出席活動</div>
+
+    <div class="main-title">
+      21C@JCISC 青年空間開幕禮 -<br>
+      魷 Y∞UTH 遊戲
+    </div>
+
+    <div class="details">
+      📅 日期：2025年5月10日（星期六）<br>
+      🕒 時間：下午1:45 至 3:15<br>
+      📍 地點：石排灣邨碧銀樓平台 1 號
+    </div>
+
+    <form id="rsvpForm"
+      action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSeg4REeObMRpsaXX2pTGA9MM0_85_4A-ctXrVjK-t39KE4-jQ/formResponse"
+      method="POST" target="hidden_iframe" onsubmit="handleSubmit(event)">
+      
+      <input type="text" name="entry.1660667875" placeholder="姓名" required />
+      <input type="text" name="entry.1717911038" placeholder="職銜" />
+      <input type="tel" name="entry.1381860631" placeholder="聯絡電話" />
+
+      <input type="hidden" id="attendanceInput" name="entry.241975396" value="" />
+
+      <div class="button-group">
+        <button type="submit" class="cta-button" onclick="setAttendance('確認出席')">確認出席</button>
+        <button type="submit" class="cta-button decline-button" onclick="setAttendance('未能出席')">未能出席</button>
+      </div>
+    </form>
+
+    <div id="thankYouMessage">感謝您的回覆，我們已經收到您的意願 🙏</div>
+    <iframe name="hidden_iframe" id="hidden_iframe"></iframe>
+  </div>
+
+  <script>
+    function setAttendance(status) {
+      document.getElementById('attendanceInput').value = status;
+    }
+
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = document.getElementById('rsvpForm');
+      form.submit();
+      form.style.display = 'none';
+      document.getElementById('thankYouMessage').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
